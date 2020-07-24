@@ -15,6 +15,9 @@ export const Container = styled.div<ContainerProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
 
     nav {
       a {
