@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { PlusCircle, MinusCircle, Link } from 'react-feather';
+import { PlusCircle, Link, Book } from 'react-feather';
 
 import {
   CardContainer,
@@ -11,6 +11,8 @@ import {
 } from './styles';
 
 const Panel: React.FC = () => {
+  const [isHover, setHover] = useState(false);
+
   useEffect(() => {
     async function loadTransactions(): Promise<void> {
       // TODO
@@ -28,12 +30,6 @@ const Panel: React.FC = () => {
         <Card>
           <TextContainer design="create">
             <PlusCircle />
-            <p>Avaiable Time</p>
-          </TextContainer>
-        </Card>
-        <Card>
-          <TextContainer design="delete">
-            <MinusCircle />
             <p>Available Time</p>
           </TextContainer>
         </Card>
@@ -41,6 +37,12 @@ const Panel: React.FC = () => {
           <TextContainer design="link">
             <Link />
             <p>Copy Link</p>
+          </TextContainer>
+        </Card>
+        <Card>
+          <TextContainer design="delete">
+            <Book />
+            <p>My Bookings</p>
           </TextContainer>
         </Card>
       </CardContainer>

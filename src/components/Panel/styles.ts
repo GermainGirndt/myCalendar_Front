@@ -43,14 +43,19 @@ export const TextContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
+  font-size: 18px;
   padding: 10px;
   border-radius: 5px;
-  width: 200px;
+  width: 100%;
   height: 72px;
+
+  &:hover {
+    font-size: 20px;
+  }
   p {
     margin-left: 6px;
   }
+
   color: ${({ design }: ButtonProps) =>
     (design === 'create' && '#11c06c') ||
     (design === 'delete' && '#e40006') ||
@@ -61,7 +66,7 @@ export const TextContainer = styled.div`
     (design === 'delete' && '#ffcfd6') ||
     (design === 'link' && '#ffd786')};
 `;
-
+// 054d70
 export const Card = styled.div`
   margin-top: 50px;
   display: flex;
@@ -72,6 +77,14 @@ export const Card = styled.div`
   background: ${({ total }: CardProps): string => (total ? '#FF872C' : '#cef')};
   border-radius: 5px;
   color: ${({ total }: CardProps): string => (total ? '#fff' : '#363F5F')};
+
+  &:hover {
+    cursor: pointer;
+    border: 2px solid #222;
+    width: 220px;
+
+    transform: translateY(-10px);
+  }
 
   header {
     display: flex;
