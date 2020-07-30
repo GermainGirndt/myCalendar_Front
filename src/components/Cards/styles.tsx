@@ -16,6 +16,7 @@ export const TextContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
+  margin: 0px;
   border-radius: 5px;
   width: 100%;
   height: 72px;
@@ -32,14 +33,16 @@ export const TextContainer = styled.div`
 
   font-size: ${({ design, isHovered }: CardProps) =>
     isHovered[design] ? '20px' : '18px'};
+
+  width: ${({ isHovered, design }: CardProps) =>
+    isHovered[design] ? '230px' : '200px'};
 `;
 
 // 054d70
 export const Card = styled.div`
   margin-top: 50px;
   display: flex;
-  padding: 1px;
-  width: 200px;
+  padding: 0px;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
@@ -47,12 +50,12 @@ export const Card = styled.div`
   cursor: ${({ isHovered, design }: CardProps) =>
     isHovered[design] ? 'pointer' : 'normal'};
 
-  &:hover {
-    border: 2px solid #222;
-    width: 220px;
-
-    transform: translateY(-10px);
-  }
+  border: ${({ isHovered, design }: CardProps) =>
+    isHovered[design] ? '2px solid #135' : '0px'};
+  width: ${({ isHovered, design }: CardProps) =>
+    isHovered[design] ? '220px' : '200px'};
+  transform: ${({ isHovered, design }: CardProps) =>
+    isHovered[design] ? 'translateY(-10px)' : '0'};
 
   header {
     display: flex;
