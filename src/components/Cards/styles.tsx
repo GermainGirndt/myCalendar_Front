@@ -1,40 +1,39 @@
 import styled from 'styled-components';
 
-interface ButtonProps {
-  design?: 'create' | 'delete' | 'link';
+interface CardProps {
+  design: 'create' | 'delete' | 'link';
+  isHovered: isHovered;
 }
 
-interface CardProps {
-  total?: boolean;
+interface isHovered {
+  create: boolean;
+  delete: boolean;
+  link: boolean;
 }
 
 export const TextContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
   padding: 10px;
   border-radius: 5px;
   width: 100%;
   height: 72px;
 
-  &:hover {
-    font-size: 20px;
-  }
-  p {
-    margin-left: 6px;
-  }
-
-  color: ${({ design }: ButtonProps) =>
+  color: ${({ design }: CardProps) =>
     (design === 'create' && '#11c06c') ||
     (design === 'delete' && '#e40006') ||
     (design === 'link' && '#ff872c')};
 
-  background: ${({ design }: ButtonProps) =>
+  background: ${({ design }: CardProps) =>
     (design === 'create' && '#cbfbe0') ||
-    (design === 'delete' && '#ffcfd6') ||
-    (design === 'link' && '#ffd786')};
+    (design === 'link' && '#ffd786') ||
+    (design === 'delete' && '#ffcfd6')};
+
+  font-size: ${({ design, isHovered }: CardProps) =>
+    isHovered[design] ? '20px' : '18px'};
 `;
+
 // 054d70
 export const Card = styled.div`
   margin-top: 50px;
@@ -43,12 +42,12 @@ export const Card = styled.div`
   width: 200px;
   justify-content: center;
   align-items: center;
-  background: ${({ total }: CardProps): string => (total ? '#FF872C' : '#cef')};
   border-radius: 5px;
-  color: ${({ total }: CardProps): string => (total ? '#fff' : '#363F5F')};
+
+  cursor: ${({ isHovered, design }: CardProps) =>
+    isHovered[design] ? 'pointer' : 'normal'};
 
   &:hover {
-    cursor: pointer;
     border: 2px solid #222;
     width: 220px;
 

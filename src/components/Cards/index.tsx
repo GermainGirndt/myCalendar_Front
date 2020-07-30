@@ -5,30 +5,29 @@ import { PlusCircle, Link, Book } from 'react-feather';
 import { Card, TextContainer } from './styles';
 
 const Cards: React.FC = () => {
-  const [isHover, setHover] = useState({
+  const [isHovered, setHovered] = useState({
     create: false,
     link: false,
     delete: false,
   });
 
-  const toggleHoverStyle = (card: 'create' | 'link' | 'delete') => {
-    console.log(`Card: ${card}`);
-    switch (card) {
-      case 'create':
-        console.log('create');
-        console.log(isHover.create);
-        setHover({ ...isHover, create: !isHover.create });
-      case 'link':
-        console.log('link');
-        console.log(isHover.link);
-        setHover({ ...isHover, link: !isHover.link });
-      case 'delete':
-        console.log('delete');
-        console.log(isHover.delete);
-        setHover({ ...isHover, delete: !isHover.delete });
-    }
+  const toggleHoverStyle = (cardName: 'create' | 'link' | 'delete') => {
+    console.log(`Card Name: ${cardName}`);
 
-    console.log(isHover);
+    if (cardName === 'create') {
+      console.log('create');
+      setHovered({ ...isHovered, create: !isHovered.create });
+      console.log(isHovered.create);
+    } else if (cardName === 'link') {
+      console.log('link');
+      setHovered({ ...isHovered, link: !isHovered.link });
+      console.log(isHovered.link);
+    } else if (cardName === 'delete') {
+      console.log('delete');
+      setHovered({ ...isHovered, delete: !isHovered.delete });
+      console.log(isHovered.delete);
+    }
+    console.log(isHovered);
   };
 
   useEffect(() => {
@@ -41,20 +40,35 @@ const Cards: React.FC = () => {
 
   return (
     <>
-      <Card onMouseEnter={() => toggleHoverStyle('create')}>
-        <TextContainer design="create">
+      <Card
+        isHovered={isHovered}
+        design="create"
+        onMouseLeave={() => toggleHoverStyle('create')}
+        onMouseEnter={() => toggleHoverStyle('create')}
+      >
+        <TextContainer design="create" isHovered={isHovered}>
           <PlusCircle />
           <p>Available Time</p>
         </TextContainer>
       </Card>
-      <Card onMouseEnter={() => toggleHoverStyle('link')}>
-        <TextContainer design="link">
+      <Card
+        isHovered={isHovered}
+        design="link"
+        onMouseLeave={() => toggleHoverStyle('link')}
+        onMouseEnter={() => toggleHoverStyle('link')}
+      >
+        <TextContainer design="link" isHovered={isHovered}>
           <Link />
           <p>Copy Link</p>
         </TextContainer>
       </Card>
-      <Card onMouseEnter={() => toggleHoverStyle('delete')}>
-        <TextContainer design="delete">
+      <Card
+        isHovered={isHovered}
+        design="delete"
+        onMouseLeave={() => toggleHoverStyle('delete')}
+        onMouseEnter={() => toggleHoverStyle('delete')}
+      >
+        <TextContainer design="delete" isHovered={isHovered}>
           <Book />
           <p>My Bookings</p>
         </TextContainer>
