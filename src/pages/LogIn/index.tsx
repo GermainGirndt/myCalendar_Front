@@ -8,12 +8,10 @@ import { FormHandles } from '@unform/core';
 import * as Yup from 'yup';
 
 import { Form } from '@unform/web';
-import { Container, Content, Background, AnimationContainer } from './styles';
+import { Container, Content, AnimationContainer } from './styles';
 import getValidationErrors from '../../utils/getValidationErrors';
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
-
-import logoImg from '../../assets/logo.svg';
 
 import Input from '../../components/Input';
 

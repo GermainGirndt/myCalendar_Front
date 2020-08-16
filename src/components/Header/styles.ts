@@ -4,10 +4,8 @@ interface ContainerProps {
   size?: 'small' | 'large';
 }
 
-// 192490 || 19242f || 2C3E50
-
 export const Container = styled.div<ContainerProps>`
-  background: #095d80;
+  background: linear-gradient(#2380aa, #125070);
   padding: 30px 0;
 
   header {

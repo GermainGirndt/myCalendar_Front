@@ -12,7 +12,13 @@ import { useToast } from '../../hooks/toast';
 import Input from '../../components/Input';
 
 import Button from '../../components/Button';
-import { Container, Content, Background, AnimationContainer } from './styles';
+import {
+  Container,
+  TextContent,
+  Content,
+  Background,
+  AnimationContainer,
+} from './styles';
 
 import getValidationErrors from '../../utils/getValidationErrors';
 
@@ -75,9 +81,28 @@ const SignUp: React.FC = () => {
   return (
     <Container>
       <Background />
+      <TextContent>
+        <h1>myAppointment</h1>
+        <br />
+        <br />
+
+        <ol>
+          <li>Defina seus horários livres.</li>
+
+          <li> Envie para seus clientes.</li>
+          <li>
+            <strong>Simples assim.</strong>
+          </li>
+        </ol>
+        <br />
+        <br />
+        <p>
+          O <strong>YourAppointment</strong> é a ferramenta ideal para agendar
+          seus compromissos de forma rápida e prática.
+        </p>
+      </TextContent>
       <Content>
         <AnimationContainer>
-          <img src={logoImg} alt="GoBarber" />
           <Form ref={formRef} onSubmit={handleSubmit}>
             <h1>Faça seu cadastro</h1>
 

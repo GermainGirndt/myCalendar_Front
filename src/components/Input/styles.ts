@@ -7,9 +7,9 @@ interface ContainerProps {
   isFilled: boolean;
   isErrored: boolean;
 }
-
+//296d90
 export const Container = styled.div<ContainerProps>`
-  background: #fff9f0;
+  background: #fff;
   border-radius: 4px;
   padding: 8px 12px;
   width: 100%;

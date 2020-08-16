@@ -1,10 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { PlusCircle, Link, Book } from 'react-feather';
 
 import { Card, TextContainer } from './styles';
 
+import api from '../../services/api';
+
 const Cards: React.FC = () => {
+  const createAvailableTime = useCallback(async (): Promise<void> => {
+    const now = new Date();
+    const in5Minutes = new Date(new Date().setMinutes(now.getMinutes() + 5));
+    const in10Minutes = new Date(new Date().setMinutes(now.getMinutes() + 10));
+    const response = await api.post(
+      'available_time/create/user/2e774072-6ef7-4e4d-85f6-41162df94269',
+      { start: in5Minutes, end: in10Minutes },
+    );
+    console.log(response);
+  }, []);
+
   const [isHovered, setHovered] = useState({
     create: false,
     link: false,
@@ -30,14 +43,6 @@ const Cards: React.FC = () => {
     console.log(isHovered);
   };
 
-  useEffect(() => {
-    async function loadTransactions(): Promise<void> {
-      // TODO
-    }
-
-    loadTransactions();
-  }, []);
-
   return (
     <>
       <Card
@@ -45,6 +50,7 @@ const Cards: React.FC = () => {
         design="create"
         onMouseLeave={() => toggleHoverStyle('create')}
         onMouseEnter={() => toggleHoverStyle('create')}
+        onClick={() => createAvailableTime()}
       >
         <TextContainer design="create" isHovered={isHovered}>
           <PlusCircle />
