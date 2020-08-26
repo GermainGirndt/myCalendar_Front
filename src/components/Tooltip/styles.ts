@@ -14,12 +14,14 @@ export const Container = styled.div`
     transition: opacity 0.6s;
     visibility: hidden;
 
+    margin-left: 10px;
+
     position: absolute;
     bottom: calc(100% + 12px);
 
     /* to center */
     left: 50%;
-    /* for bring to the beguining */
+    /* for bringing to the beguining */
     transform: translateX(-50%);
 
     color: #312e38;

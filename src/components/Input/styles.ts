@@ -11,7 +11,7 @@ interface ContainerProps {
 export const Container = styled.div<ContainerProps>`
   background: #fff;
   border-radius: 4px;
-  padding: 8px 12px;
+  padding: 8px 10px;
   width: 100%;
 
   border: 2px solid #232129;
@@ -47,25 +47,31 @@ export const Container = styled.div<ContainerProps>`
 
 
   input {
-    color: #bbb;
-    background-color: transparent;
+    color: #333;
     flex: 1;
+    width: 50%;
+    margin-left: 24px;
+    margin-right: 40px;
+    background-color: transparent;
     border: 0;
     &:placeholder {
+
       color: #666360;
     }
   }
 
   svg {
-    margin-right: 16px;
+    position: absolute;
+    margin-right: 5px;
+
   }
 `;
 
 export const Error = styled(Tooltip)`
-  height: 20px;
-  margin-left: 16px;
+  height: 18px;
+  margin-right: 16px;
+
   svg {
-    margin: 0;
   }
 
   span {
